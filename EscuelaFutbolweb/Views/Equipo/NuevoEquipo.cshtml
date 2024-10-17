@@ -1,0 +1,43 @@
+﻿@model EscuelaFutbolweb.Models.Equipo
+
+<h2>Crear Nuevo Equipo</h2>
+
+<!-- Mostrar errores de validación -->
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        Por favor, corrija los errores e intente nuevamente.
+    </div>
+}
+
+<form asp-action="NuevoEquipo" method="post">
+    <div class="form-group">
+        <label asp-for="NombreEquipo"></label>
+        <input asp-for="NombreEquipo" class="form-control" />
+        <span asp-validation-for="NombreEquipo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoriaID">Categoría</label>
+        <select asp-for="CategoriaID" class="form-control" asp-items="@(ViewBag.Categorias)">
+            <option value="">Seleccione una categoría (Opcional)</option>
+        </select>
+        <span asp-validation-for="CategoriaID" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EntrenadorID">Entrenador</label>
+        <select asp-for="EntrenadorID" class="form-control" asp-items="@(ViewBag.Entrenadores)">
+            <option value="">Seleccione un entrenador (Opcional)</option>
+        </select>
+        <span asp-validation-for="EntrenadorID" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Equipo</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

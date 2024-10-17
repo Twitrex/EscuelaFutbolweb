@@ -1,0 +1,91 @@
+﻿@model EscuelaFutbolweb.Models.Alumno
+
+@{
+    ViewData["Title"] = "Editar Alumno";
+}
+
+<h2>Editar Alumno</h2>
+
+<form asp-action="EditarAlumno" method="post">
+    <div class="form-group">
+        <label asp-for="AlumnoID" class="control-label"></label>
+        <input asp-for="AlumnoID" class="form-control" readonly />
+        <span asp-validation-for="AlumnoID" class="text-danger"></span>
+    </div>
+
+    <!-- Nombre -->
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" maxlength="100" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <!-- Apellido -->
+    <div class="form-group">
+        <label asp-for="Apellido"></label>
+        <input asp-for="Apellido" class="form-control" maxlength="100" />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+
+    <!-- DNI -->
+    <div class="form-group">
+        <label asp-for="DNI"></label>
+        <input asp-for="DNI" class="form-control" maxlength="8" />
+        <span asp-validation-for="DNI" class="text-danger"></span>
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="form-group">
+        <label asp-for="FechaNacimiento"></label>
+        <input asp-for="FechaNacimiento" class="form-control" type="date" />
+    </div>
+
+    <!-- Categoría -->
+    <div class="form-group">
+        <label asp-for="CategoriaID"></label>
+        <select asp-for="CategoriaID" class="form-control" asp-items="@(ViewBag.Categorias)">
+            <option value="">Seleccionar categoría</option>  <!-- Mostrar esta opción si es null -->
+        </select>
+    </div>
+
+    <!-- Puesto -->
+    <div class="form-group">
+        <label asp-for="PuestoID"></label>
+        <select asp-for="PuestoID" class="form-control" asp-items="@(ViewBag.Puestos)">
+            <option value="">Seleccionar puesto</option>  <!-- Mostrar esta opción si es null -->
+        </select>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="form-group">
+        <label asp-for="Telefono"></label>
+        <input asp-for="Telefono" class="form-control" maxlength="15" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" maxlength="255" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <!-- Checkbox Activo -->
+    <div class="form-group form-check">
+        <input class="form-check-input" type="checkbox" asp-for="Activo" />
+        <label class="form-check-label" asp-for="Activo"></label>
+    </div>
+
+    <!-- Botón para guardar -->
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

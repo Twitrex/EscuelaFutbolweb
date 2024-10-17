@@ -1,0 +1,89 @@
+﻿@model IEnumerable<EscuelaFutbolweb.Models.Alumno>
+
+<h2>Lista de Alumnos</h2>
+
+<!-- Botón para agregar un nuevo alumno -->
+<a asp-action="NuevoAlumno" class="btn btn-success mb-3">Agregar Alumno</a>
+
+<!-- Botón para ver alumnos inactivos -->
+<a asp-action="AlumnosInactivos" class="btn btn-secondary mb-3">Ver Inactivos</a>
+
+<!-- Formulario de búsqueda y filtrado -->
+<form asp-action="Alumnos" method="get" class="mb-4">
+    <div class="row g-3 align-items-center">
+        <!-- Campo de texto para nombre o apellido -->
+        <div class="col-md-4">
+            <label for="Nombre" class="form-label">Nombre o Apellido</label>
+            <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ingresa el nombre o apellido" />
+        </div>
+
+        <!-- Campo de texto para DNI -->
+        <div class="col-md-2">
+            <label for="DNI" class="form-label">DNI</label>
+            <input type="text" name="DNI" id="DNI" class="form-control" placeholder="Ingresa el DNI" maxlength="8" />
+        </div>
+
+        <!-- Selección de categoría -->
+        <div class="col-md-3">
+            <label for="CategoriaID" class="form-label">Categoría</label>
+            <select name="CategoriaID" id="CategoriaID" class="form-select">
+                <option value="">Todas las Categorías</option>
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value="@categoria.Value">@categoria.Text</option>
+                }
+            </select>
+        </div>
+
+        <!-- Selección de puesto -->
+        <div class="col-md-3">
+            <label for="PuestoID" class="form-label">Puesto</label>
+            <select name="PuestoID" id="PuestoID" class="form-select">
+                <option value="">Todos los Puestos</option>
+                @foreach (var puesto in ViewBag.Puestos)
+                {
+                    <option value="@puesto.Value">@puesto.Text</option>
+                }
+            </select>
+        </div>
+
+        <!-- Botón de búsqueda -->
+        <div class="col-md-2">
+            <label class="form-label d-block">&nbsp;</label> <!-- Espacio para mantener alineado el botón -->
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>DNI</th>
+            <th>Edad</th>
+            <th>Categoría</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <!-- Combina nombre y apellido en una celda -->
+                <td>@alumno.Nombre @alumno.Apellido</td>
+                <td>@alumno.DNI</td>
+                <td>@alumno.Edad</td>
+                <td>@alumno.Categoria</td>
+                <td>@alumno.Puesto</td>
+                <td>
+                    <!-- Botón para ver detalles del alumno -->
+                    <a asp-action="DetalleAlumno" asp-route-id="@alumno.AlumnoID" class="btn btn-info btn-sm">Detalles</a>
+
+                    <!-- Botón para editar el alumno -->
+                    <a asp-action="EditarAlumno" asp-route-id="@alumno.AlumnoID" class="btn btn-primary btn-sm">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

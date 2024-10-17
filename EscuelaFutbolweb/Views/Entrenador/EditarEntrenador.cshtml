@@ -1,0 +1,41 @@
+﻿@model EscuelaFutbolweb.Models.Entrenador
+
+<h2>Editar Entrenador</h2>
+
+<form asp-action="EditarEntrenador" method="post">
+    <input type="hidden" asp-for="EntrenadorID" />
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Apellido"></label>
+        <input asp-for="Apellido" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DNI"></label>
+        <input asp-for="DNI" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefono"></label>
+        <input asp-for="Telefono" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Activo"></label>
+        <input asp-for="Activo" type="checkbox" class="form-check-input" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Entrenadores" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

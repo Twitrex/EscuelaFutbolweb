@@ -1,0 +1,52 @@
+﻿@model EscuelaFutbolweb.Models.Alumno
+
+@{
+    ViewData["Title"] = "Detalle del Alumno";
+}
+
+<h2>Detalle del Alumno</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Apellido</dt>
+        <dd class="col-sm-10">@Model.Apellido</dd>
+
+        <dt class="col-sm-2">DNI</dt>
+        <dd class="col-sm-10">@Model.DNI</dd>
+
+        <dt class="col-sm-2">Fecha de Nacimiento</dt>
+        <dd class="col-sm-10">@Model.FechaNacimiento.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-2">Categoría</dt>
+        <dd class="col-sm-10">@(@Model.Categoria ?? "Sin categoría")</dd> <!-- Mostrar nombre o "Sin categoría" -->
+
+        <dt class="col-sm-2">Puesto</dt>
+        <dd class="col-sm-10">@(@Model.Puesto ?? "Sin puesto")</dd> <!-- Mostrar nombre o "Sin puesto" -->
+
+        <dt class="col-sm-2">Teléfono</dt>
+        <dd class="col-sm-10">@(@Model.Telefono ?? "Sin teléfono")</dd> <!-- Mostrar teléfono o "Sin teléfono" -->
+
+        <dt class="col-sm-2">Correo Electrónico</dt>
+        <dd class="col-sm-10">@(@Model.Email ?? "Sin correo")</dd> <!-- Mostrar correo o "Sin correo" -->
+
+        <dt class="col-sm-2">Estado</dt>
+        <dd class="col-sm-10">@(@Model.Activo ? "Activo" : "Inactivo")</dd>
+
+
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+    <a asp-action="EditarAlumno" asp-route-id="@Model.AlumnoID" class="btn btn-primary">Editar</a>
+    <a asp-action="EditarAlumno" asp-route-id="@Model.AlumnoID" class="btn btn-danger">Eliminar</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

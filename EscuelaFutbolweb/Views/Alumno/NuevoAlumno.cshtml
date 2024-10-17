@@ -1,0 +1,74 @@
+﻿@model EscuelaFutbolweb.Models.Alumno
+
+<h2>Registrar Nuevo Alumno</h2>
+
+<form asp-action="NuevoAlumno" method="post">
+    <div class="row g-3">
+        <!-- Nombre -->
+        <div class="col-md-6">
+            <label asp-for="Nombre" class="form-label">Nombre</label>
+            <input asp-for="Nombre" class="form-control" maxlength="100" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <!-- Apellido -->
+        <div class="col-md-6">
+            <label asp-for="Apellido" class="form-label">Apellido</label>
+            <input asp-for="Apellido" class="form-control" maxlength="100" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+
+        <!-- DNI -->
+        <div class="col-md-4">
+            <label asp-for="DNI" class="form-label">DNI</label>
+            <input asp-for="DNI" class="form-control" maxlength="8" />
+            <span asp-validation-for="DNI" class="text-danger"></span>
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="col-md-4">
+            <label asp-for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input asp-for="FechaNacimiento" type="date" class="form-control" />
+            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="col-md-4">
+            <label asp-for="Telefono" class="form-label">Teléfono</label>
+            <input asp-for="Telefono" class="form-control" maxlength="15" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+            <label asp-for="Email" class="form-label">Correo Electrónico</label>
+            <input asp-for="Email" type="email" class="form-control" maxlength="255" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <!-- Selección de Puesto -->
+        <div class="col-md-6">
+            <label asp-for="PuestoID" class="form-label">Puesto</label>
+            <select asp-for="PuestoID" class="form-select">
+                <option value="">Seleccione un Puesto</option>
+                @foreach (var puesto in ViewBag.Puestos)
+                {
+                    <option value="@puesto.Value">@puesto.Text</option>
+                }
+            </select>
+            <span asp-validation-for="PuestoID" class="text-danger"></span>
+        </div>
+
+        <!-- Botón para enviar -->
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a asp-action="Alumnos" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

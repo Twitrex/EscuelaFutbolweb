@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EscuelaFutbolweb.Models.Entrenador>
+
+<h2>Lista de Entrenadores</h2>
+
+<!-- Botón para agregar un nuevo entrenador, movido a la parte superior -->
+<a asp-action="NuevoEntrenador" class="btn btn-success mb-3">Agregar Entrenador</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th>Acciones</th> <!-- Columna para acciones -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entrenador in Model)
+        {
+            <tr>
+                <td>@entrenador.Nombre</td>
+                <td>@entrenador.Apellido</td>
+                <td>@entrenador.DNI</td>
+                <td>@entrenador.Telefono</td>
+                <td>@entrenador.Email</td>
+                <td>@(entrenador.Activo ? "Activo" : "Inactivo")</td>
+                <td>
+                    <!-- Botón para editar -->
+                    <a asp-action="EditarEntrenador" asp-route-id="@entrenador.EntrenadorID" class="btn btn-primary btn-sm">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

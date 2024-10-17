@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EscuelaFutbolweb.Models.Alumno>
+
+<h2>Lista de Alumnos Inactivos</h2>
+<br />
+<!-- Botón para volver a la lista de alumnos activos -->
+<a asp-action="Alumnos" class="btn btn-primary">Volver a Alumnos Activos</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>DNI</th>
+            <th>Edad</th>
+            <th>Categoría</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <td>@alumno.Nombre @(" ") @alumno.Apellido</td>
+                <td>@alumno.DNI</td>
+                <td>@alumno.Edad</td>
+                <td>@alumno.Categoria</td>
+                <td>@alumno.Puesto</td>
+                <td>
+                    <!-- Botón para activar el alumno -->
+                    <form asp-action="Activar" method="post">
+                        <input type="hidden" name="id" value="@alumno.AlumnoID" />
+                        <button type="submit" class="btn btn-success btn-sm">Activar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Botón para volver a la lista de alumnos activos -->
+<a asp-action="Alumnos" class="btn btn-primary">Volver a Alumnos Activos</a>
+
