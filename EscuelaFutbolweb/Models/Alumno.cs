@@ -53,5 +53,6 @@ namespace EscuelaFutbolweb.Models
 
         [Display(Name = "Activo")]
         public bool Activo { get; set; }
+        public string SubCategoria { get; set; }
     }
 }

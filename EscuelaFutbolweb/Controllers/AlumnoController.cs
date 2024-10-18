@@ -40,7 +40,8 @@ namespace EscuelaFutbolweb.Controllers
                         DNI = dr.GetString(3),
                         Edad = dr.GetInt32(4),
                         Categoria = dr.GetString(5),
-                        Puesto = dr.GetString(6)
+                        Puesto = dr.GetString(6),
+                        SubCategoria = CalcularSubCategoria(dr.GetDateTime(7))  // Asignar la Sub-categoría
                     };
                     lista.Add(alumno);
                 }
@@ -48,6 +49,30 @@ namespace EscuelaFutbolweb.Controllers
             }
             return lista;
         }
+
+        // Método para calcular la Sub-categoría
+        private string CalcularSubCategoria(DateTime fechaNacimiento)
+        {
+            int year = fechaNacimiento.Year;
+
+            if (year >= 2018) return "Sub-6";
+            if (year == 2017) return "Sub-7";
+            if (year == 2016) return "Sub-8";
+            if (year == 2015) return "Sub-9";
+            if (year == 2014) return "Sub-10";
+            if (year == 2013) return "Sub-11";
+            if (year == 2012) return "Sub-12";
+            if (year == 2011) return "Sub-13";
+            if (year == 2010) return "Sub-14";
+            if (year == 2009) return "Sub-15";
+            if (year == 2008) return "Sub-16";
+            if (year == 2007) return "Sub-17";
+            if (year == 2006) return "Sub-18";
+            if (year == 2005) return "Sub-19";
+
+            return "Sin Sub-categoría";
+        }
+
 
         public async Task<IActionResult> Alumnos(string nombre, string dni, int? categoriaID, int? puestoID)
         {
