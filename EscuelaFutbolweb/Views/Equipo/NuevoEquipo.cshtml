@@ -1,39 +1,43 @@
 ﻿@model EscuelaFutbolweb.Models.Equipo
 
-<h2>Crear Nuevo Equipo</h2>
-
-<!-- Mostrar errores de validación -->
-@if (!ViewData.ModelState.IsValid)
-{
-    <div class="alert alert-danger">
-        Por favor, corrija los errores e intente nuevamente.
-    </div>
+@{
+    ViewData["Title"] = "Nuevo Equipo";
 }
 
+<h2>Nuevo Equipo</h2>
+
+<!-- Formulario para crear un nuevo equipo -->
 <form asp-action="NuevoEquipo" method="post">
     <div class="form-group">
-        <label asp-for="NombreEquipo"></label>
+        <label asp-for="NombreEquipo" class="control-label">Nombre del Equipo</label>
         <input asp-for="NombreEquipo" class="form-control" />
         <span asp-validation-for="NombreEquipo" class="text-danger"></span>
     </div>
 
+    <!-- Categoría -->
     <div class="form-group">
-        <label asp-for="CategoriaID">Categoría</label>
+        <label asp-for="CategoriaID" class="control-label">Categoría</label>
         <select asp-for="CategoriaID" class="form-control" asp-items="@(ViewBag.Categorias)">
-            <option value="">Seleccione una categoría (Opcional)</option>
+            <option value="">Seleccione una Categoría</option>
         </select>
-        <span asp-validation-for="CategoriaID" class="text-danger"></span>
+        <!-- No se necesita validación para este campo -->
     </div>
 
+    <!-- Entrenador -->
     <div class="form-group">
-        <label asp-for="EntrenadorID">Entrenador</label>
+        <label asp-for="EntrenadorID" class="control-label">Entrenador</label>
         <select asp-for="EntrenadorID" class="form-control" asp-items="@(ViewBag.Entrenadores)">
-            <option value="">Seleccione un entrenador (Opcional)</option>
+            <option value="">Seleccione un Entrenador</option>
         </select>
-        <span asp-validation-for="EntrenadorID" class="text-danger"></span>
+        <!-- No se necesita validación para este campo -->
     </div>
 
-    <button type="submit" class="btn btn-success">Guardar Equipo</button>
+    <!-- Estado Activo (Oculto y asignado como verdadero por defecto) -->
+    <input type="hidden" asp-for="Activo" value="true" />
+
+    <!-- Botón para guardar el nuevo equipo -->
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Equipos" class="btn btn-secondary">Cancelar</a>
 </form>
 
 @section Scripts {
@@ -41,3 +45,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+

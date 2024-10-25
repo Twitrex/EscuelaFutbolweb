@@ -499,3 +499,5 @@ C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\
 C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\EscuelaFutbolweb\obj\Debug\net8.0\EscuelaFutbolweb.genruntimeconfig.cache
 C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\EscuelaFutbolweb\obj\Debug\net8.0\ref\EscuelaFutbolweb.dll
 C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\EscuelaFutbolweb\obj\Debug\net8.0\EscuelaFutbolweb.sourcelink.json
+C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\EscuelaFutbolweb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\boade\OneDrive\Documentos\proyecto escuela de fútbol\EscuelaFutbolweb\EscuelaFutbolweb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

@@ -1,11 +1,19 @@
 ﻿@model IEnumerable<EscuelaFutbolweb.Models.Equipo>
 
+@{
+    ViewData["Title"] = "Lista de Equipos";
+}
+
 <h2>Lista de Equipos</h2>
 
-<!-- Botón para crear un nuevo equipo -->
-<a asp-action="NuevoEquipo" class="btn btn-success mb-3">Crear Nuevo Equipo</a>
+<!-- Botón para agregar un nuevo equipo -->
+<a asp-action="NuevoEquipo" class="btn btn-primary mb-3">Agregar Equipo</a>
 
-<table class="table table-striped">
+<!-- Botón para ver equipos inactivos -->
+<a asp-action="EquiposInactivos" class="btn btn-secondary mb-3">Ver Inactivos</a>
+
+<!-- Tabla de equipos -->
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Nombre del Equipo</th>
@@ -18,19 +26,15 @@
     <tbody>
         @foreach (var equipo in Model)
         {
-            <tr>
-                <td>@equipo.NombreEquipo</td>
-                <td>@(string.IsNullOrEmpty(equipo.Categoria) ? "Sin Categoría" : equipo.Categoria)</td>
-                <td>@(string.IsNullOrEmpty(equipo.Entrenador) ? "Sin Entrenador" : equipo.Entrenador)</td>
-                <td>@(equipo.Activo ? "Activo" : "Inactivo")</td>
-                <td>
-                    <!-- Botón para editar el equipo -->
-                    <a asp-action="EditarEquipo" asp-route-id="@equipo.EquipoID" class="btn btn-primary btn-sm">Editar</a>
-
-                    <!-- Si deseas agregar más acciones, como eliminar o asignar alumnos, puedes hacerlo aquí -->
-                </td>
-            </tr>
+                <tr>
+                    <td>@equipo.NombreEquipo</td>
+                    <td>@(@equipo.Categoria ?? "Sin Categoría")</td>
+                    <td>@(@equipo.Entrenador ?? "Sin Entrenador")</td>
+                    <td>@(equipo.Activo ? "Activo" : "Inactivo")</td>
+                    <td>
+                        <a asp-action="EditarEquipo" asp-route-id="@equipo.EquipoID" class="btn btn-warning">Editar</a>
+                    </td>
+                </tr>
         }
     </tbody>
 </table>
-
