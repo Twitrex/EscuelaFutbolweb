@@ -13,7 +13,7 @@ namespace EscuelaFutbolweb.Controllers
             _config = config;
         }
 
-        public List<Alumno> ListarAlumnos(string nombre = null, string dni = null, int? categoriaID = null, int? puestoID = null, bool? estado = null)
+        public List<Alumno> ListarAlumnos(string nombre = null, string dni = null, string subCategoria = null, int? categoriaID = null, int? puestoID = null, bool? estado = null)
         {
             List<Alumno> lista = new List<Alumno>();
             using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
@@ -25,6 +25,7 @@ namespace EscuelaFutbolweb.Controllers
                 // Agregar parámetros de filtro
                 cmd.Parameters.AddWithValue("@Nombre", string.IsNullOrEmpty(nombre) ? (object)DBNull.Value : nombre);
                 cmd.Parameters.AddWithValue("@DNI", string.IsNullOrEmpty(dni) ? (object)DBNull.Value : dni);
+                cmd.Parameters.AddWithValue("@SubCategoria", string.IsNullOrEmpty(subCategoria) ? (object)DBNull.Value : subCategoria);
                 cmd.Parameters.AddWithValue("@CategoriaID", categoriaID.HasValue ? (object)categoriaID.Value : DBNull.Value);
                 cmd.Parameters.AddWithValue("@PuestoID", puestoID.HasValue ? (object)puestoID.Value : DBNull.Value);
                 cmd.Parameters.AddWithValue("@Estado", estado.HasValue ? (object)estado.Value : DBNull.Value);
@@ -41,7 +42,7 @@ namespace EscuelaFutbolweb.Controllers
                         Edad = dr.GetInt32(4),
                         Categoria = dr.GetString(5),
                         Puesto = dr.GetString(6),
-                        SubCategoria = CalcularSubCategoria(dr.GetDateTime(7))  // Asignar la Sub-categoría
+                        SubCategoria = dr.GetString(7)  // Recibir Sub-categoría
                     };
                     lista.Add(alumno);
                 }
@@ -69,19 +70,20 @@ namespace EscuelaFutbolweb.Controllers
             if (year == 2007) return "Sub-17";
             if (year == 2006) return "Sub-18";
             if (year == 2005) return "Sub-19";
+            if (year == 2004) return "Sub-20";
 
             return "Sin Sub-categoría";
         }
 
 
-        public async Task<IActionResult> Alumnos(string nombre, string dni, int? categoriaID, int? puestoID)
+        public async Task<IActionResult> Alumnos(string nombre, string dni, string subCategoria, int? categoriaID, int? puestoID)
         {
             // Cargar categorías y puestos para los dropdowns
             ViewBag.Categorias = ObtenerCategorias();
             ViewBag.Puestos = ObtenerPuestos();
 
             // Llama al método que lista los alumnos con los filtros aplicados
-            return View(await Task.Run(() => ListarAlumnos(nombre, dni, categoriaID, puestoID, true)));  // Estado = Activo
+            return View(await Task.Run(() => ListarAlumnos(nombre, dni, subCategoria, categoriaID, puestoID, true)));  // Estado = Activo
         }
 
         public void agregarAlumno(Alumno nuevoAlumno)

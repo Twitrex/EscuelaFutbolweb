@@ -14,7 +14,7 @@ namespace EscuelaFutbolweb.Controllers
             _config = config;
         }
 
-        // Método para listar equipos
+        // Listar todos los equipos
         public List<Equipo> ListarEquipos()
         {
             List<Equipo> lista = new List<Equipo>();
@@ -30,8 +30,8 @@ namespace EscuelaFutbolweb.Controllers
                     {
                         EquipoID = dr.GetInt32(0),
                         NombreEquipo = dr.GetString(1),
-                        Categoria = dr.IsDBNull(2) ? "Sin Categoría" : dr.GetString(2),
-                        Entrenador = dr.IsDBNull(3) ? "Sin Entrenador" : dr.GetString(3),
+                        Categoria = dr.GetString(2),
+                        Entrenador = dr.GetString(3),
                         Activo = dr.GetBoolean(4)
                     };
                     lista.Add(equipo);
@@ -41,109 +41,224 @@ namespace EscuelaFutbolweb.Controllers
             return lista;
         }
 
-        // Método para mostrar la lista de equipos
+        // Vista principal para listar los equipos
         public async Task<IActionResult> Equipos()
         {
             return View(await Task.Run(() => ListarEquipos()));
         }
 
-        // Método para obtener las categorías y entrenadores en los combo box
-        private void CargarDatosEquipo()
+        public List<Equipo> ObtenerEquiposInactivos()
         {
-            using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            List<Equipo> equiposInactivos = new List<Equipo>();
+
+            try
             {
-                cnn.Open();
-
-                // Cargar categorías
-                SqlCommand cmdCategorias = new SqlCommand("spCargarCategorias", cnn);
-                SqlDataReader drCategorias = cmdCategorias.ExecuteReader();
-                List<SelectListItem> categorias = new List<SelectListItem>();
-                //Para agregar un item desde el método
-                //categorias.Add(new SelectListItem { Value = "", Text = "Seleccione una categoría" });
-                while (drCategorias.Read())
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
                 {
-                    categorias.Add(new SelectListItem { Value = drCategorias["CategoriaID"].ToString(), Text = drCategorias["NombreCategoria"].ToString() });
-                }
-                ViewBag.Categorias = categorias;
-                drCategorias.Close();
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spListarEquiposInactivos", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-                // Cargar entrenadores
-                SqlCommand cmdEntrenadores = new SqlCommand("spCargarEntrenadores", cnn);
-                SqlDataReader drEntrenadores = cmdEntrenadores.ExecuteReader();
-                List<SelectListItem> entrenadores = new List<SelectListItem>();
-                //Para agregar un item desde el método
-                //entrenadores.Add(new SelectListItem { Value = "", Text = "Seleccione un entrenador" });
-                while (drEntrenadores.Read())
-                {
-                    entrenadores.Add(new SelectListItem { Value = drEntrenadores["EntrenadorID"].ToString(), Text = drEntrenadores["Nombre"].ToString() });
+                    while (dr.Read())
+                    {
+                        equiposInactivos.Add(new Equipo
+                        {
+                            EquipoID = dr.GetInt32(0),
+                            NombreEquipo = dr.GetString(1),
+                            Categoria = dr.IsDBNull(2) ? "Sin Categoría" : dr.GetString(2),
+                            Entrenador = dr.IsDBNull(3) ? "Sin Entrenador" : dr.GetString(3),
+                            Activo = dr.GetBoolean(4)
+                        });
+                    }
+                    dr.Close();
                 }
-                ViewBag.Entrenadores = entrenadores;
-                drEntrenadores.Close();
             }
-        }
-
-        // Método GET para crear un nuevo equipo
-        public async Task<IActionResult> NuevoEquipo()
-        {
-            // Cargar categorías y entrenadores en los dropdowns
-            CargarDatosEquipo();
-            return View(await Task.Run(() => new Equipo()));
-        }
-
-        // Método POST para agregar un nuevo equipo
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> NuevoEquipo(Equipo equipo)
-        {
-            if (!ModelState.IsValid)
+            catch (Exception ex)
             {
-                CargarDatosEquipo();
-                return View(equipo);
+                Console.WriteLine("Error al listar los equipos inactivos: " + ex.Message);
             }
-            equipo.Activo = true;
-            CrearEquipo(equipo);
-            return RedirectToAction(nameof(Equipos));
+
+            return equiposInactivos;
         }
 
-        // Método para crear un nuevo equipo en la base de datos
-        public void CrearEquipo(Equipo equipo)
+        public IActionResult EquiposInactivos()
+        {
+            var equiposInactivos = ObtenerEquiposInactivos();
+            return View(equiposInactivos);  // Retornar la vista con los equipos inactivos
+        }
+
+        public void ActivarEquipoEnBD(int equipoID)
         {
             try
             {
-                using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
                 {
-                    cnn.Open();
-                    SqlCommand cmd = new SqlCommand("spCrearEquipo", cnn);
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spActivarEquipo", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Asignar los parámetros para el stored procedure
-                    cmd.Parameters.AddWithValue("@NombreEquipo", equipo.NombreEquipo);
-                    cmd.Parameters.AddWithValue("@CategoriaID", equipo.CategoriaID ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@EntrenadorID", equipo.EntrenadorID ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Activo", equipo.Activo);
-
+                    cmd.Parameters.AddWithValue("@EquipoID", equipoID);
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al crear el equipo: " + ex.Message);
+                Console.WriteLine("Error al activar el equipo: " + ex.Message);
+            }
+        }
+
+        public IActionResult ActivarEquipo(int id)
+        {
+            ActivarEquipoEnBD(id);
+            return RedirectToAction(nameof(EquiposInactivos));  // Volver a la lista de equipos inactivos
+        }
+
+        // Obtener categorías para el dropdown
+        public List<SelectListItem> ObtenerCategorias()
+        {
+            List<SelectListItem> categorias = new List<SelectListItem>();
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spCargarCategorias", cn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    categorias.Add(new SelectListItem
+                    {
+                        Value = dr["CategoriaID"].ToString(),
+                        Text = dr["NombreCategoria"].ToString()
+                    });
+                }
+                dr.Close();
+            }
+            return categorias;
+        }
+
+        // Obtener entrenadores para el dropdown
+        public List<SelectListItem> ObtenerEntrenadores()
+        {
+            List<SelectListItem> entrenadores = new List<SelectListItem>();
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spCargarEntrenadores", cn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entrenadores.Add(new SelectListItem
+                    {
+                        Value = dr["EntrenadorID"].ToString(),
+                        Text = dr["Nombre"].ToString()
+                    });
+                }
+                dr.Close();
+            }
+            return entrenadores;
+        }
+
+        // Mostrar el formulario para agregar un nuevo equipo
+        public IActionResult NuevoEquipo()
+        {
+            ViewBag.Categorias = ObtenerCategorias();
+            ViewBag.Entrenadores = ObtenerEntrenadores();
+            return View(new Equipo());
+        }
+
+        public void InsertarEquipo(Equipo nuevoEquipo)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spAgregarEquipo", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NombreEquipo", nuevoEquipo.NombreEquipo);
+                    cmd.Parameters.AddWithValue("@CategoriaID", nuevoEquipo.CategoriaID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EntrenadorID", nuevoEquipo.EntrenadorID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Activo", nuevoEquipo.Activo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al agregar el equipo: " + ex.Message);
             }
         }
 
 
-        // Método GET para editar un equipo
-        public async Task<IActionResult> EditarEquipo(int id)
+        // Método POST para agregar un nuevo equipo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> NuevoEquipo(Equipo nuevoEquipo)
         {
-            Equipo equipo = SeleccionarEquipoPorID(id);
+            /*if (!ModelState.IsValid)
+            {
+                ViewBag.Categorias = ObtenerCategorias();
+                ViewBag.Entrenadores = ObtenerEntrenadores();
+                return View(nuevoEquipo);
+            }*/
+            if (!ModelState.IsValid)
+            {
+                foreach (var value in ModelState.Values)
+                {
+                    foreach (var error in value.Errors)
+                    {
+                        Console.WriteLine(error.ErrorMessage);
+                    }
+                }
+                ViewBag.Categorias = ObtenerCategorias();
+                ViewBag.Entrenadores = ObtenerEntrenadores();
+                return View(nuevoEquipo);
+            }
+
+
+            InsertarEquipo(nuevoEquipo);
+
+            return RedirectToAction(nameof(Equipos));
+        }
+
+
+        // Mostrar el formulario para editar un equipo existente
+        public IActionResult EditarEquipo(int id)
+        {
+            Equipo equipo = SeleccionarEquipo(id);
             if (equipo == null)
             {
                 return NotFound();
             }
 
-            // Cargar categorías y entrenadores en los dropdowns
-            CargarDatosEquipo();
-            return View(await Task.Run(() => equipo));
+            ViewBag.Categorias = ObtenerCategorias();
+            ViewBag.Entrenadores = ObtenerEntrenadores();
+            return View(equipo);
+        }
+
+        // Seleccionar equipo por ID
+        public Equipo SeleccionarEquipo(int equipoID)
+        {
+            Equipo equipo = null;
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spSeleccionarEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoID);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    equipo = new Equipo
+                    {
+                        EquipoID = dr.GetInt32(0),
+                        NombreEquipo = dr.GetString(1),
+                        CategoriaID = dr.IsDBNull(2) ? (int?)null : dr.GetInt32(2),
+                        EntrenadorID = dr.IsDBNull(3) ? (int?)null : dr.GetInt32(3),
+                        Activo = dr.GetBoolean(4)
+                    };
+                }
+                dr.Close();
+            }
+            return equipo;
         }
 
         // Método POST para actualizar un equipo
@@ -153,69 +268,54 @@ namespace EscuelaFutbolweb.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // Si hay errores en el formulario, recargar las categorías y entrenadores
-                CargarDatosEquipo();
+                ViewBag.Categorias = ObtenerCategorias();
+                ViewBag.Entrenadores = ObtenerEntrenadores();
                 return View(equipo);
             }
 
-            ActualizarEquipo(equipo);
-            Console.WriteLine("Equipo creado correctamente. Redirigiendo a la lista de equipos.");
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spActualizarEquipo", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@EquipoID", equipo.EquipoID);
+                    cmd.Parameters.AddWithValue("@NombreEquipo", equipo.NombreEquipo);
+                    cmd.Parameters.AddWithValue("@CategoriaID", equipo.CategoriaID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EntrenadorID", equipo.EntrenadorID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Activo", equipo.Activo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar el equipo: " + ex.Message);
+            }
+
             return RedirectToAction(nameof(Equipos));
         }
 
-        // Método para seleccionar un equipo por ID
-        public Equipo SeleccionarEquipoPorID(int equipoID)
+        // Método para eliminar un equipo
+        public IActionResult EliminarEquipo(int id)
         {
-            Equipo equipo = new Equipo();
-            using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            try
             {
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand("spSeleccionarEquipo", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@EquipoID", equipoID);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
                 {
-                    equipo.EquipoID = dr.GetInt32(0);
-                    equipo.NombreEquipo = dr.GetString(1);
-                    equipo.CategoriaID = dr.IsDBNull(2) ? (int?)null : dr.GetInt32(2);
-                    equipo.EntrenadorID = dr.IsDBNull(3) ? (int?)null : dr.GetInt32(3);
-                    equipo.Activo = dr.GetBoolean(4);
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spEliminarEquipo", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@EquipoID", id);
+                    cmd.ExecuteNonQuery();
                 }
-                dr.Close();
             }
-            return equipo;
-        }
-
-        // Método para actualizar un equipo
-        public void ActualizarEquipo(Equipo equipo)
-        {
-            using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            catch (Exception ex)
             {
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand("spActualizarEquipo", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@EquipoID", equipo.EquipoID);
-                cmd.Parameters.AddWithValue("@NombreEquipo", equipo.NombreEquipo);
-                cmd.Parameters.AddWithValue("@CategoriaID", equipo.CategoriaID ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@EntrenadorID", equipo.EntrenadorID ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Activo", equipo.Activo);
-                cmd.ExecuteNonQuery();
+                Console.WriteLine("Error al eliminar el equipo: " + ex.Message);
             }
-        }
 
-        // Método para asignar un alumno a un equipo
-        public void AsignarAlumnoAEquipo(int equipoID, int alumnoID)
-        {
-            using (SqlConnection cnn = new SqlConnection(_config["ConnectionStrings:sql"]))
-            {
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand("spAsignarAlumnoAEquipo", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@EquipoID", equipoID);
-                cmd.Parameters.AddWithValue("@AlumnoID", alumnoID);
-                cmd.ExecuteNonQuery();
-            }
+            return RedirectToAction(nameof(Equipos));
         }
     }
 }
