@@ -40,13 +40,13 @@
         <input asp-for="FechaNacimiento" class="form-control" type="date" />
     </div>
 
-    <!-- Categoría -->
+    <!-- Categoría 
     <div class="form-group">
         <label asp-for="CategoriaID"></label>
         <select asp-for="CategoriaID" class="form-control" asp-items="@(ViewBag.Categorias)">
-            <option value="">Seleccionar categoría</option>  <!-- Mostrar esta opción si es null -->
+            <option value="">Seleccionar categoría</option>
         </select>
-    </div>
+    </div>-->
 
     <!-- Puesto -->
     <div class="form-group">
@@ -78,10 +78,12 @@
 
     <!-- Botón para guardar -->
     <button type="submit" class="btn btn-primary">Guardar</button>
+
+    <a asp-action="Alumnos" class="btn btn-secondary">Volver a la Lista</a>
 </form>
 
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    
 </div>
 
 @section Scripts {

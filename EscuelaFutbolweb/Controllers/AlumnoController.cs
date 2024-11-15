@@ -164,30 +164,46 @@ namespace EscuelaFutbolweb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> NuevoAlumno(Alumno nuevoAlumno)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                // Volver a cargar los puestos si hay un error de validación
+                if (!ModelState.IsValid)
+                {
+                    // Volver a cargar los puestos si hay un error de validación
+                    ViewBag.Puestos = new SelectList(ObtenerPuestos(), "Value", "Text", nuevoAlumno.PuestoID);
+                    return View(nuevoAlumno);
+                }
+
+                // Asignar un valor por defecto a Activo
+                nuevoAlumno.Activo = true;  // O false, según lo que prefieras
+
+                // Si PuestoID no fue seleccionado, asignar NULL
+                if (nuevoAlumno.PuestoID == 0)
+                {
+                    nuevoAlumno.PuestoID = null;
+                }
+
+                // Asignar la categoría automáticamente según la edad del alumno
+                AsignarCategoria(nuevoAlumno);
+
+                // Llamar al método para insertar un nuevo alumno en la base de datos
+                agregarAlumno(nuevoAlumno);
+
+                return RedirectToAction(nameof(Alumnos));  // Redirigir a la lista de alumnos después de agregar
+            }
+            catch (Exception ex)
+            {
+                // Loguear el error (puedes usar un logger aquí si tienes uno configurado)
+                Console.WriteLine($"Error al agregar un nuevo alumno: {ex.Message}");
+
+                // Opcional: Agregar un mensaje de error a la vista
+                ModelState.AddModelError(string.Empty, "Ocurrió un error al intentar agregar el alumno. Inténtalo nuevamente más tarde.");
+
+                // Volver a cargar los puestos para que la vista no falle al recargar
                 ViewBag.Puestos = new SelectList(ObtenerPuestos(), "Value", "Text", nuevoAlumno.PuestoID);
                 return View(nuevoAlumno);
             }
-
-            // Asignar un valor por defecto a Activo
-            nuevoAlumno.Activo = true;  // O false, según lo que prefieras
-
-            // Si PuestoID no fue seleccionado, asignar NULL
-            if (nuevoAlumno.PuestoID == 0)
-            {
-                nuevoAlumno.PuestoID = null;
-            }
-
-            // Asignar la categoría automáticamente según la edad del alumno
-            AsignarCategoria(nuevoAlumno);
-
-            // Llamar al método para insertar un nuevo alumno en la base de datos
-            agregarAlumno(nuevoAlumno);
-
-            return RedirectToAction(nameof(Alumnos));  // Redirigir a la lista de alumnos después de agregar
         }
+
 
         public Alumno seleccionarAlumnoPorID(int idAlumno)
         {
@@ -441,10 +457,9 @@ namespace EscuelaFutbolweb.Controllers
                         Nombre = dr.GetString(1),
                         Apellido = dr.GetString(2),
                         DNI = dr.GetString(3),
-                        FechaNacimiento = dr.GetDateTime(4),
-                        Telefono = dr.IsDBNull(5) ? null : dr.GetString(5),
-                        Email = dr.IsDBNull(6) ? null : dr.GetString(6),
-                        Activo = dr.GetBoolean(7)
+                        Edad = dr.GetInt32(4),
+                        Categoria = dr.GetString(5),
+                        Puesto = dr.GetString(6)
                     };
                     lista.Add(alumno);
                 }

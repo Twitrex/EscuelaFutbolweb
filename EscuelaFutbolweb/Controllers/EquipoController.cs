@@ -317,5 +317,67 @@ namespace EscuelaFutbolweb.Controllers
 
             return RedirectToAction(nameof(Equipos));
         }
+
+        // GET: Mostrar vista para asignar alumnos a un equipo específico
+        [HttpGet]
+        public IActionResult AsignarAlumnos(int equipoId)
+        {
+            ViewBag.EquipoID = equipoId;
+            ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId);
+            return View();
+        }
+
+        // POST: Asignar alumnos al equipo
+        [HttpPost]
+        public IActionResult AsignarAlumnos(int equipoId, List<int> alumnoIds)
+        {
+            foreach (var alumnoId in alumnoIds)
+            {
+                AsignarAlumnoAEquipo(equipoId, alumnoId);
+            }
+
+            return RedirectToAction("Detalles", new { id = equipoId });
+        }
+
+        // Método para obtener la lista de alumnos que no están asignados a un equipo
+        private List<SelectListItem> ObtenerAlumnosDisponibles(int equipoId)
+        {
+            List<SelectListItem> alumnos = new List<SelectListItem>();
+
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spObtenerAlumnosNoAsignados", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    alumnos.Add(new SelectListItem
+                    {
+                        Value = dr["AlumnoID"].ToString(),
+                        Text = dr["NombreCompleto"].ToString()
+                    });
+                }
+                dr.Close();
+            }
+
+            return alumnos;
+        }
+
+        // Método para asignar un alumno a un equipo
+        private void AsignarAlumnoAEquipo(int equipoId, int alumnoId)
+        {
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spAsignarAlumnoAEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                cmd.Parameters.AddWithValue("@AlumnoID", alumnoId);
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

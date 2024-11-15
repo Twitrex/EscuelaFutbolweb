@@ -30,13 +30,11 @@
                     <form asp-action="Activar" method="post">
                         <input type="hidden" name="id" value="@alumno.AlumnoID" />
                         <button type="submit" class="btn btn-success btn-sm">Activar</button>
-                    </form>
+                        <!-- Botón para ver detalles del alumno -->
+                        <a asp-action="DetalleAlumno" asp-route-id="@alumno.AlumnoID" class="btn btn-info btn-sm">Detalles</a>
+                    </form>                    
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<!-- Botón para volver a la lista de alumnos activos -->
-<a asp-action="Alumnos" class="btn btn-primary">Volver a Alumnos Activos</a>
-

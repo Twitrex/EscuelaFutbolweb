@@ -19,6 +19,7 @@ namespace EscuelaFutbolweb.Models
 
         [Required]
         [StringLength(8, ErrorMessage = "El DNI no puede tener más de 8 caracteres.")]
+        [RegularExpression(@"^\d{8}$", ErrorMessage = "El DNI debe contener solo números y tener exactamente 8 dígitos.")]
         [Display(Name = "DNI")]
         public string DNI { get; set; }
 
@@ -27,7 +28,7 @@ namespace EscuelaFutbolweb.Models
         public DateTime FechaNacimiento { get; set; }
 
         [Display(Name = "Edad")]
-        public int Edad { get; set; }
+        public int? Edad { get; set; }
 
         [Display(Name = "Categoría")]
         public string? Categoria { get; set; }
@@ -44,8 +45,9 @@ namespace EscuelaFutbolweb.Models
         [StringLength(15)]
         [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber)]
-        public string Telefono { get; set; }
+        public string? Telefono { get; set; }
 
+        [Required(ErrorMessage = "El campo de Email es necesario")]
         [StringLength(255)]
         [Display(Name = "Correo Electrónico")]
         [DataType(DataType.EmailAddress)]
@@ -53,6 +55,6 @@ namespace EscuelaFutbolweb.Models
 
         [Display(Name = "Activo")]
         public bool Activo { get; set; }
-        public string SubCategoria { get; set; }
+        public string? SubCategoria { get; set; }
     }
 }
