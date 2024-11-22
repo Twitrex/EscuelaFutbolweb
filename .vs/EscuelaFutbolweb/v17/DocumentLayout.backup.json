@@ -3,52 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\sesiones\\registrarresultados.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\sesiones\\registrarresultados.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\alumno\\nuevoalumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\alumno\\nuevoalumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\equipo\\asignarmultiplesalumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\equipo\\asignarmultiplesalumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\alumno\\detallealumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\alumno\\detallealumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\alumno\\alumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\alumno\\alumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\alumno\\editaralumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\alumno\\editaralumno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\controllers\\alumnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\controllers\\alumnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\equipo\\asignaralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\equipo\\asignaralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\controllers\\sesionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\controllers\\sesionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\controllers\\equipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\controllers\\equipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\resultadoprueba\\agregarresultado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\resultadoprueba\\agregarresultado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\equipo\\asignaralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\equipo\\asignaralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\models\\guardarresultadosmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\models\\guardarresultadosmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\equipo\\equipos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\equipo\\equipos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\sesiones\\agregarsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\sesiones\\agregarsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\equipo\\veralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\equipo\\veralumnos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\models\\resultadosesionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\models\\resultadosesionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\models\\sesionprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\models\\sesionprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\sesiones\\sesiones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\sesiones\\sesiones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\resultadoprueba\\listarresultadosporsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\resultadoprueba\\listarresultadosporsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\controllers\\resultadopruebacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\controllers\\resultadopruebacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\resultadoprueba\\resultadospruebas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\resultadoprueba\\resultadospruebas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|c:\\users\\boade\\onedrive\\documentos\\proyecto escuela de f\u00FAtbol\\escuelafutbolweb\\escuelafutbolweb\\models\\resultadoprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314B1285-EDFA-4833-883F-80DC8476FF72}|EscuelaFutbolweb\\EscuelaFutbolweb.csproj|solutionrelative:escuelafutbolweb\\models\\resultadoprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 497,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -67,135 +87,151 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NuevoAlumno.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\NuevoAlumno.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Alumno\\NuevoAlumno.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\NuevoAlumno.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Alumno\\NuevoAlumno.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAABGAAAAAAAAAA==",
+              "Title": "AsignarMultiplesAlumnos.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\AsignarMultiplesAlumnos.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Equipo\\AsignarMultiplesAlumnos.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\AsignarMultiplesAlumnos.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Equipo\\AsignarMultiplesAlumnos.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T16:15:57.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DetalleAlumno.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\DetalleAlumno.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Alumno\\DetalleAlumno.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\DetalleAlumno.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Alumno\\DetalleAlumno.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T16:05:32.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Alumnos.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\Alumnos.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Alumno\\Alumnos.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\Alumnos.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Alumno\\Alumnos.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T13:38:58.061Z"
+              "WhenOpened": "2024-11-22T02:09:18.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Alumno.cs",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\Alumno.cs",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Models\\Alumno.cs",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\Alumno.cs",
-              "RelativeToolTip": "EscuelaFutbolweb\\Models\\Alumno.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAcwC4AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T23:31:43.524Z",
+              "Title": "RegistrarResultados.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\RegistrarResultados.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Sesiones\\RegistrarResultados.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\RegistrarResultados.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Sesiones\\RegistrarResultados.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAArwKQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T11:01:06.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "EditarAlumno.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\EditarAlumno.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Alumno\\EditarAlumno.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Alumno\\EditarAlumno.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Alumno\\EditarAlumno.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T22:09:51.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AlumnoController.cs",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\AlumnoController.cs",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\AlumnoController.cs",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\AlumnoController.cs",
-              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\AlumnoController.cs",
-              "ViewState": "AgIAANoBAAAAAAAAAAAgwOsBAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:08:49.497Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "AsignarAlumnos.cshtml",
               "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\AsignarAlumnos.cshtml",
               "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Equipo\\AsignarAlumnos.cshtml",
               "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\AsignarAlumnos.cshtml",
               "RelativeToolTip": "EscuelaFutbolweb\\Views\\Equipo\\AsignarAlumnos.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T17:26:38.303Z"
+              "WhenOpened": "2024-11-20T16:51:33.877Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EquipoController.cs",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\EquipoController.cs",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\EquipoController.cs",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\EquipoController.cs",
-              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\EquipoController.cs",
-              "ViewState": "AgIAAG8BAAAAAAAAAAAqwHoBAAAQAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Equipos.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\Equipos.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Equipo\\Equipos.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\Equipos.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Equipo\\Equipos.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowCQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T22:14:20.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GuardarResultadosModel.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\GuardarResultadosModel.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Models\\GuardarResultadosModel.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\GuardarResultadosModel.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Models\\GuardarResultadosModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T17:23:42.031Z"
+              "WhenOpened": "2024-11-18T19:49:25.068Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AgregarResultado.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\AgregarResultado.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\AgregarResultado.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\AgregarResultado.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\AgregarResultado.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T16:16:27.67Z"
+              "DocumentIndex": 12,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "EscuelaFutbolweb\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-18T17:46:34.577Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "ResultadosPruebas.cshtml",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\ResultadosPruebas.cshtml",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\ResultadosPruebas.cshtml",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\ResultadosPruebas.cshtml",
-              "RelativeToolTip": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\ResultadosPruebas.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Title": "SesionPrueba.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\SesionPrueba.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Models\\SesionPrueba.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\SesionPrueba.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Models\\SesionPrueba.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:14:18.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VerAlumnos.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\VerAlumnos.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Equipo\\VerAlumnos.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Equipo\\VerAlumnos.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Equipo\\VerAlumnos.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T15:55:45.615Z"
+              "WhenOpened": "2024-11-21T22:41:54.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AgregarSesion.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\AgregarSesion.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Sesiones\\AgregarSesion.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\AgregarSesion.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Sesiones\\AgregarSesion.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T09:45:57.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Sesiones.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\Sesiones.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Sesiones\\Sesiones.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Sesiones\\Sesiones.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\Sesiones\\Sesiones.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:43:47.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ListarResultadosPorSesion.cshtml",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\ListarResultadosPorSesion.cshtml",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\ListarResultadosPorSesion.cshtml",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\ResultadoPrueba\\ListarResultadosPorSesion.cshtml",
+              "RelativeToolTip": "EscuelaFutbolweb\\Views\\ResultadoPrueba\\ListarResultadosPorSesion.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:57:23.698Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ResultadoPruebaController.cs",
-              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
-              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
-              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
-              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA6wBYAAABGAAAAAAAAAA==",
+              "Title": "ResultadoSesionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\ResultadoSesionViewModel.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Models\\ResultadoSesionViewModel.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\ResultadoSesionViewModel.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Models\\ResultadoSesionViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T15:51:23.775Z"
+              "WhenOpened": "2024-11-16T07:55:39.561Z"
             },
             {
               "$type": "Document",
@@ -205,9 +241,65 @@
               "RelativeDocumentMoniker": "EscuelaFutbolweb\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "EscuelaFutbolweb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAUwFsAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-05T23:04:38.397Z"
+              "WhenOpened": "2024-11-18T17:31:40.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ResultadoPrueba.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\ResultadoPrueba.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Models\\ResultadoPrueba.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Models\\ResultadoPrueba.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Models\\ResultadoPrueba.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T07:12:19.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ResultadoPruebaController.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\ResultadoPruebaController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T07:12:10.937Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 497,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SesionesController.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\SesionesController.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\SesionesController.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\SesionesController.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\SesionesController.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAQwPMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:46:58.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EquipoController.cs",
+              "DocumentMoniker": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\EquipoController.cs",
+              "RelativeDocumentMoniker": "EscuelaFutbolweb\\Controllers\\EquipoController.cs",
+              "ToolTip": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de f\u00FAtbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\Controllers\\EquipoController.cs",
+              "RelativeToolTip": "EscuelaFutbolweb\\Controllers\\EquipoController.cs",
+              "ViewState": "AgIAANMBAAAAAAAAAAAAwCwCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T16:48:14.005Z",
+              "EditorCaption": ""
             }
           ]
         }

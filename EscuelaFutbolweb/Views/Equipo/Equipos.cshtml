@@ -13,28 +13,37 @@
 <a asp-action="EquiposInactivos" class="btn btn-secondary mb-3">Ver Inactivos</a>
 
 <!-- Tabla de equipos -->
-<table class="table table-bordered">
+<table class="table">
     <thead>
         <tr>
             <th>Nombre del Equipo</th>
             <th>Categoría</th>
             <th>Entrenador</th>
-            <th>Estado</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var equipo in Model)
         {
-                <tr>
-                    <td>@equipo.NombreEquipo</td>
-                    <td>@(@equipo.Categoria ?? "Sin Categoría")</td>
-                    <td>@(@equipo.Entrenador ?? "Sin Entrenador")</td>
-                    <td>@(equipo.Activo ? "Activo" : "Inactivo")</td>
-                    <td>
-                        <a asp-action="EditarEquipo" asp-route-id="@equipo.EquipoID" class="btn btn-warning">Editar</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>@equipo.NombreEquipo</td>
+                <td>@equipo.Categoria</td>
+                <td>@equipo.Entrenador</td>
+                <td>
+                    <!-- Botón para editar equipo -->
+                    <a asp-action="EditarEquipo" asp-route-id="@equipo.EquipoID" class="btn btn-primary">Editar</a>
+
+                    <!-- Botón para asignar alumnos al equipo -->
+                    <a asp-action="AsignarMultiplesAlumnos" asp-route-equipoId="@equipo.EquipoID" class="btn btn-success">Asignar Alumnos</a>
+
+                    <!-- Botón para visualizar alumnos del equipo -->
+                    <a asp-action="VerAlumnos" asp-route-equipoId="@equipo.EquipoID" class="btn btn-info">Ver Alumnos</a>
+
+                    <!-- Botón para eliminar equipo -->
+                    <a asp-action="EliminarEquipo" asp-route-id="@equipo.EquipoID" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este equipo?');">Eliminar</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+

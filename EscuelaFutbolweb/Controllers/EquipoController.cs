@@ -318,12 +318,13 @@ namespace EscuelaFutbolweb.Controllers
             return RedirectToAction(nameof(Equipos));
         }
 
-        // GET: Mostrar vista para asignar alumnos a un equipo específico
+        // GET: Mostrar vista para asignar alumnos
         [HttpGet]
         public IActionResult AsignarAlumnos(int equipoId)
         {
             ViewBag.EquipoID = equipoId;
-            ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId);
+            ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId); // Alumnos no asignados
+            ViewBag.NombreEquipo = ObtenerNombreEquipo(equipoId); // Obtener el nombre del equipo
             return View();
         }
 
@@ -333,17 +334,47 @@ namespace EscuelaFutbolweb.Controllers
         {
             foreach (var alumnoId in alumnoIds)
             {
-                AsignarAlumnoAEquipo(equipoId, alumnoId);
+                // Verificar si el alumno ya está asignado al equipo
+                if (!EsAlumnoAsignadoAlEquipo(equipoId, alumnoId))
+                {
+                    AsignarAlumnoAEquipo(equipoId, alumnoId);
+                }
+                else
+                {
+                    // Mensaje o acción opcional si el alumno ya está asignado al equipo
+                    Console.WriteLine($"El alumno con ID {alumnoId} ya está asignado al equipo con ID {equipoId}.");
+                }
             }
-
             return RedirectToAction("Detalles", new { id = equipoId });
         }
 
-        // Método para obtener la lista de alumnos que no están asignados a un equipo
+        // Método para verificar si el alumno ya está asignado al equipo
+        private bool EsAlumnoAsignadoAlEquipo(int equipoId, int alumnoId)
+        {
+            bool yaAsignado = false;
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spVerificarAlumnoEnEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                cmd.Parameters.AddWithValue("@AlumnoID", alumnoId);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    // Convertir el valor devuelto (0 o 1) en un booleano
+                    yaAsignado = dr.GetInt32(0) == 1;
+                }
+                dr.Close();
+            }
+            return yaAsignado;
+        }
+
+        // Método para obtener alumnos disponibles
         private List<SelectListItem> ObtenerAlumnosDisponibles(int equipoId)
         {
             List<SelectListItem> alumnos = new List<SelectListItem>();
-
             using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
             {
                 cn.Open();
@@ -362,11 +393,30 @@ namespace EscuelaFutbolweb.Controllers
                 }
                 dr.Close();
             }
-
             return alumnos;
         }
 
-        // Método para asignar un alumno a un equipo
+        // Método para obtener el nombre del equipo
+        private string ObtenerNombreEquipo(int equipoId)
+        {
+            string nombreEquipo = "";
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spObtenerNombreEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    nombreEquipo = dr["NombreEquipo"].ToString();
+                }
+                dr.Close();
+            }
+            return nombreEquipo;
+        }
+
+        // Método para asignar alumno al equipo
         private void AsignarAlumnoAEquipo(int equipoId, int alumnoId)
         {
             using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
@@ -378,6 +428,132 @@ namespace EscuelaFutbolweb.Controllers
                 cmd.Parameters.AddWithValue("@AlumnoID", alumnoId);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        // Método para obtener los alumnos asignados a un equipo
+        public List<Alumno> ObtenerAlumnosPorEquipo(int equipoId)
+        {
+            List<Alumno> alumnos = new List<Alumno>();
+            using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("spObtenerAlumnosPorEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    alumnos.Add(new Alumno
+                    {
+                        AlumnoID = dr.GetInt32(0),
+                        Nombre = dr.GetString(1),
+                        Apellido = dr.GetString(2),
+                        FechaNacimiento = dr.GetDateTime(3),
+                        Categoria = dr.IsDBNull(4) ? null : dr.GetString(4),
+                        Puesto = dr.IsDBNull(5) ? null : dr.GetString(5)
+                    });
+                }
+                dr.Close();
+            }
+            return alumnos;
+        }
+
+        // Acción para la vista que muestra los alumnos de un equipo
+        public IActionResult VerAlumnos(int equipoId)
+        {
+            var alumnos = ObtenerAlumnosPorEquipo(equipoId);
+            ViewBag.EquipoID = equipoId;
+            ViewBag.NombreEquipo = ObtenerNombreEquipo(equipoId);
+            ViewBag.MensajeExito = TempData["MensajeExito"]?.ToString(); // Mensaje de éxito si existe
+            return View(alumnos);
+        }
+
+        
+
+        public IActionResult AsignarMultiplesAlumnos(int equipoId)
+        {
+            ViewBag.EquipoID = equipoId;
+            ViewBag.NombreEquipo = ObtenerNombreEquipo(equipoId);
+            ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId);
+            return View();
+        }
+
+        // POST: Asignar múltiples alumnos a un equipo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AsignarMultiplesAlumnos(int equipoId, List<int> alumnoIds)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.EquipoID = equipoId;
+                ViewBag.NombreEquipo = ObtenerNombreEquipo(equipoId);
+                ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId);
+                return View(alumnoIds);
+            }
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    foreach (var alumnoId in alumnoIds)
+                    {
+                        SqlCommand cmd = new SqlCommand("spAsignarAlumnoAEquipo", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@EquipoID", equipoId);
+                        cmd.Parameters.AddWithValue("@AlumnoID", alumnoId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                TempData["MensajeExito"] = "Alumnos asignados con éxito.";
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al asignar alumnos: " + ex.Message);
+                ViewBag.EquipoID = equipoId;
+                ViewBag.NombreEquipo = ObtenerNombreEquipo(equipoId);
+                ViewBag.AlumnosDisponibles = ObtenerAlumnosDisponibles(equipoId);
+                return View(alumnoIds);
+            }
+
+            return RedirectToAction("VerAlumnos", new { equipoId });
+        }
+
+        // Método para buscar alumnos por nombre o apellido
+        [HttpGet]
+        public IActionResult BuscarAlumnos(string nombre)
+        {
+            List<Alumno> alumnos = new List<Alumno>();
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spBuscarAlumnosPorNombre", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        alumnos.Add(new Alumno
+                        {
+                            AlumnoID = dr.GetInt32(0),
+                            Nombre = dr.GetString(1),
+                            Apellido = dr.GetString(2)
+                        });
+                    }
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar alumnos: " + ex.Message);
+                return StatusCode(500, "Error interno del servidor");
+            }
+
+            return Json(alumnos);
         }
     }
 }

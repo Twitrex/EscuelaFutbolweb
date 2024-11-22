@@ -70,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEFzaWduYXJBbHVtbm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Equipo/AsignarMultiplesAlumnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEFzaWduYXJNdWx0aXBsZXNBbHVtbm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Equipo/EditarEquipo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEVkaXRhckVxdWlwby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Equipo/NuevoEquipo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXE51ZXZvRXF1aXBvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Equipo/VerAlumnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXFZlckFsdW1ub3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Home/Index.cshtml]
@@ -106,12 +114,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc1xQcnVlYmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Pruebas/SesionesDePrueba.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc1xTZXNpb25lc0RlUHJ1ZWJhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/ResultadoPrueba/AgregarResultado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0YWRvUHJ1ZWJhXEFncmVnYXJSZXN1bHRhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/ResultadoPrueba/ListarResultadosPorSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0YWRvUHJ1ZWJhXExpc3RhclJlc3VsdGFkb3NQb3JTZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/ResultadoPrueba/ResultadosPruebas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0YWRvUHJ1ZWJhXFJlc3VsdGFkb3NQcnVlYmFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Sesiones/AgregarSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VzaW9uZXNcQWdyZWdhclNlc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Sesiones/DetallesSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VzaW9uZXNcRGV0YWxsZXNTZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Sesiones/EditarSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VzaW9uZXNcRWRpdGFyU2VzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Sesiones/RegistrarResultados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VzaW9uZXNcUmVnaXN0cmFyUmVzdWx0YWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Sesiones/Sesiones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VzaW9uZXNcU2VzaW9uZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/boade/OneDrive/Documentos/proyecto escuela de fútbol/EscuelaFutbolweb/EscuelaFutbolweb/Views/Shared/Error.cshtml]
