@@ -3,8 +3,10 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using EscuelaFutbolweb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 namespace EscuelaFutbolweb.Controllers
 {
+    //[Authorize(Roles = "Administrador, Entrenador")]
     public class AlumnoController : Controller
     {
         private readonly IConfiguration _config;
@@ -492,5 +494,137 @@ namespace EscuelaFutbolweb.Controllers
             return RedirectToAction(nameof(AlumnosInactivos));
         }
 
+        public AlumnoPerfilViewModel ObtenerDatosAlumno(int alumnoID)
+        {
+            AlumnoPerfilViewModel alumno = new AlumnoPerfilViewModel();
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spObtenerDatosAlumno", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@AlumnoID", alumnoID);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        alumno.AlumnoID = dr.GetInt32(0);
+                        alumno.NombreCompleto = dr.GetString(1) + " " + dr.GetString(2);
+                        alumno.DNI = dr.GetString(3);
+                        alumno.FechaNacimiento = dr.GetDateTime(4);
+                        alumno.Categoria = dr.IsDBNull(6) ? "No asignada" : dr.GetString(6);
+                        alumno.Puesto = dr.IsDBNull(7) ? "No asignado" : dr.GetString(7);
+                        alumno.Telefono = dr.IsDBNull(8) ? "No registrado" : dr.GetString(8);
+                        alumno.Email = dr.IsDBNull(9) ? "No registrado" : dr.GetString(9);
+                    }
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener los datos del alumno: " + ex.Message);
+            }
+            return alumno;
+        }
+
+        public List<string> ObtenerEquiposPorAlumno(int alumnoID)
+        {
+            List<string> equipos = new List<string>();
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spObtenerEquiposPorAlumno", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@AlumnoID", alumnoID);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        equipos.Add(dr["NombreEquipo"].ToString());
+                    }
+                    dr.Close();
+                }
+
+                // Si no hay equipos registrados, agregar el mensaje
+                if (equipos.Count == 0)
+                {
+                    equipos.Add("No pertenece a ningún equipo");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener los equipos del alumno: " + ex.Message);
+            }
+            return equipos;
+        }
+
+        public AlumnoConEquiposViewModel ObtenerAlumnoConEquipos(int alumnoID)
+        {
+            AlumnoConEquiposViewModel alumnoConEquipos = new AlumnoConEquiposViewModel();
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(_config["ConnectionStrings:sql"]))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("spObtenerAlumnoConEquipos", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@AlumnoID", alumnoID);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // Leer datos del alumno
+                        if (dr.Read())
+                        {
+                            alumnoConEquipos.AlumnoID = dr.GetInt32(0);
+                            alumnoConEquipos.NombreCompleto = $"{dr.GetString(1)} {dr.GetString(2)}";
+                            alumnoConEquipos.DNI = dr.IsDBNull(3) ? "No registrado" : dr.GetString(3);
+                            alumnoConEquipos.FechaNacimiento = dr.IsDBNull(4) ? DateTime.MinValue : dr.GetDateTime(4);
+                            alumnoConEquipos.Categoria = dr.IsDBNull(6) ? "No asignada" : dr.GetString(6);
+                            alumnoConEquipos.Puesto = dr.IsDBNull(7) ? "No asignado" : dr.GetString(7);
+                            alumnoConEquipos.Telefono = dr.IsDBNull(8) ? "No registrado" : dr.GetString(8);
+                            alumnoConEquipos.Email = dr.IsDBNull(9) ? "No registrado" : dr.GetString(9);
+                        }
+
+                        // Leer equipos
+                        if (dr.NextResult())
+                        {
+                            while (dr.Read())
+                            {
+                                alumnoConEquipos.Equipos.Add(dr["NombreEquipo"].ToString());
+                            }
+                        }
+                    }
+
+                    // Si no hay equipos registrados, agregar el mensaje
+                    if (alumnoConEquipos.Equipos.Count == 0)
+                    {
+                        alumnoConEquipos.Equipos.Add("No pertenece a ningún equipo");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener los datos del alumno y sus equipos: " + ex.Message);
+            }
+
+            return alumnoConEquipos;
+        }
+
+        [Authorize(Roles = "Alumno")]
+        public IActionResult PerfilAlumno()
+        {
+            // Obtener el AlumnoID desde los claims del usuario autenticado
+            int alumnoID = Convert.ToInt32(User.FindFirst("AlumnoID")?.Value);
+
+            // Llamar al método para obtener los datos del perfil
+            AlumnoConEquiposViewModel model = ObtenerAlumnoConEquipos(alumnoID);
+
+            // Retornar la vista con el modelo cargado
+            return View(model);
+        }
     }
 }

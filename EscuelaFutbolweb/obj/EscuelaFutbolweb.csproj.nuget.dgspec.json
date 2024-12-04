@@ -52,7 +52,11 @@
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[5.2.1, )"
+              "version": "[5.2.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -61,6 +65,10 @@
             "System.ComponentModel": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.0, )"
             }
           },
           "imports": [
