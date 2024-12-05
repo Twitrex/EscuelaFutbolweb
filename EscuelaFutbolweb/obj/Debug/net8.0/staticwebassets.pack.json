@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\EscuelaFutbolweb.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de fútbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\css\\sign-in.css",
+      "PackagePath": "staticwebassets\\css\\sign-in.css"
+    },
+    {
       "Id": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de fútbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de fútbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de fútbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
       "Id": "C:\\Users\\boade\\OneDrive\\Documentos\\proyecto escuela de fútbol\\EscuelaFutbolweb\\EscuelaFutbolweb\\wwwroot\\js\\site.js",
