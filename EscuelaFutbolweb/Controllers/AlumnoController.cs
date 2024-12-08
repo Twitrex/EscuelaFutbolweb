@@ -15,6 +15,7 @@ namespace EscuelaFutbolweb.Controllers
             _config = config;
         }
 
+        [Authorize(Roles = "Administrador, Entrenador")]
         public List<Alumno> ListarAlumnos(string nombre = null, string dni = null, string subCategoria = null, int? categoriaID = null, int? puestoID = null, bool? estado = null)
         {
             List<Alumno> lista = new List<Alumno>();
@@ -77,7 +78,7 @@ namespace EscuelaFutbolweb.Controllers
             return "Sin Sub-categoría";
         }
 
-
+        [Authorize(Roles = "Administrador, Entrenador")]
         public async Task<IActionResult> Alumnos(string nombre, string dni, string subCategoria, int? categoriaID, int? puestoID)
         {
             // Cargar categorías y puestos para los dropdowns
@@ -116,7 +117,7 @@ namespace EscuelaFutbolweb.Controllers
             }
         }
 
-
+        [Authorize(Roles = "Administrador, Entrenador")]
         public async Task<IActionResult> NuevoAlumno()
         {
             // Cargar las listas de categorías y puestos para el formulario

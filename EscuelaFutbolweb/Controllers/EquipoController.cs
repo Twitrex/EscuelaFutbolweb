@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using EscuelaFutbolweb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EscuelaFutbolweb.Controllers
 {
@@ -42,6 +43,7 @@ namespace EscuelaFutbolweb.Controllers
         }
 
         // Vista principal para listar los equipos
+        [Authorize(Roles = "Administrador, Entrenador")]
         public async Task<IActionResult> Equipos()
         {
             return View(await Task.Run(() => ListarEquipos()));

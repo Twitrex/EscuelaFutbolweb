@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 using EscuelaFutbolweb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EscuelaFutbolweb.Controllers
 {
@@ -43,6 +44,7 @@ namespace EscuelaFutbolweb.Controllers
         }
 
         // Método para mostrar la lista de entrenadores
+        [Authorize(Roles = "Administrador, Entrenador")]
         public async Task<IActionResult> Entrenadores()
         {
             return View(await Task.Run(() => ListarEntrenadores()));
